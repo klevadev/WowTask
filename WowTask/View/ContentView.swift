@@ -12,7 +12,6 @@ struct ContentView: View {
     
     // MARK: - PROPERTY
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-    @State var task: String = ""
     @State private var showNewTaskItem: Bool = false
     
     // FETCHING DATA
@@ -70,13 +69,15 @@ struct ContentView: View {
                         Button {
                             // TOGGLE APPEARANCE
                             isDarkMode.toggle()
+                            TaskAudioPlayer.shared.playSound(sound: Sound.tap.rawValue)
+                            feedBack.notificationOccurred(.success)
                         } label: {
                             Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
                         }
-
+                        
                         
                     } //: HStack
                     .padding()
@@ -89,6 +90,8 @@ struct ContentView: View {
                     
                     Button {
                         showNewTaskItem = true
+                        TaskAudioPlayer.shared.playSound(sound: Sound.ding.rawValue)
+                        feedBack.notificationOccurred(.success)
                     } label: {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 30, weight: .semibold, design: .rounded))
@@ -141,7 +144,7 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .background(
                 BackgroundImageView()
-                    .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false) 
+                    .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
             )
             .background(
                 backgroundGradient.ignoresSafeArea(.all)

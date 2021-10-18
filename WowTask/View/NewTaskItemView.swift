@@ -58,6 +58,8 @@ struct NewTaskItemView: View {
                     
                     Button {
                         addItem()
+                        TaskAudioPlayer.shared.playSound(sound: Sound.ding.rawValue)
+                        feedBack.notificationOccurred(.success)
                     } label: {
                         Spacer()
                         Text("Сохранить")
@@ -65,6 +67,11 @@ struct NewTaskItemView: View {
                         Spacer()
                     }
                     .disabled(isButtonDisabled)
+                    .onTapGesture {
+                        if isButtonDisabled {
+                            TaskAudioPlayer.shared.playSound(sound: Sound.tap.rawValue)
+                        }
+                    }
                     .padding()
                     .foregroundColor(
                         .white
