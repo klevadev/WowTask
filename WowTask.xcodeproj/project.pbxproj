@@ -15,6 +15,13 @@
 		A83609AA271DDB75002A56E3 /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609A9271DDB75002A56E3 /* ListRowItemView.swift */; };
 		A83609AC271DDE01002A56E3 /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609AB271DDE01002A56E3 /* CheckboxStyle.swift */; };
 		A83609AE271DF239002A56E3 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609AD271DF239002A56E3 /* SoundPlayer.swift */; };
+		A83609B6271DFC68002A56E3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83609B5271DFC68002A56E3 /* WidgetKit.framework */; };
+		A83609B8271DFC68002A56E3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83609B7271DFC68002A56E3 /* SwiftUI.framework */; };
+		A83609BB271DFC68002A56E3 /* WowTaskWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609BA271DFC68002A56E3 /* WowTaskWidget.swift */; };
+		A83609BD271DFC6B002A56E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83609BC271DFC6B002A56E3 /* Assets.xcassets */; };
+		A83609C1271DFC6B002A56E3 /* WowTaskWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A83609B3271DFC68002A56E3 /* WowTaskWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A83609C6271DFEB2002A56E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
+		A83609C7271E0093002A56E3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836099F271DAEB5002A56E3 /* Constant.swift */; };
 		A89C0A4B271DA73E005319AE /* WowTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4A271DA73E005319AE /* WowTaskApp.swift */; };
 		A89C0A4D271DA73E005319AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4C271DA73E005319AE /* ContentView.swift */; };
 		A89C0A4F271DA742005319AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
@@ -26,6 +33,30 @@
 		A89C0A62271DA7D8005319AE /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A5F271DA7D8005319AE /* sound-tap.mp3 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A83609BF271DFC6B002A56E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A89C0A3F271DA73E005319AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A83609B2271DFC68002A56E3;
+			remoteInfo = WowTaskWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A83609C5271DFC6B002A56E3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A83609C1271DFC6B002A56E3 /* WowTaskWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A836099F271DAEB5002A56E3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A83609A1271DB3BB002A56E3 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
@@ -35,6 +66,12 @@
 		A83609A9271DDB75002A56E3 /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 		A83609AB271DDE01002A56E3 /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
 		A83609AD271DF239002A56E3 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		A83609B3271DFC68002A56E3 /* WowTaskWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WowTaskWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83609B5271DFC68002A56E3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A83609B7271DFC68002A56E3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A83609BA271DFC68002A56E3 /* WowTaskWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskWidget.swift; sourceTree = "<group>"; };
+		A83609BC271DFC6B002A56E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A83609BE271DFC6B002A56E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A89C0A47271DA73E005319AE /* WowTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89C0A4A271DA73E005319AE /* WowTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskApp.swift; sourceTree = "<group>"; };
 		A89C0A4C271DA73E005319AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +86,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A83609B0271DFC68002A56E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83609B8271DFC68002A56E3 /* SwiftUI.framework in Frameworks */,
+				A83609B6271DFC68002A56E3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A89C0A44271DA73E005319AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +105,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A83609B4271DFC68002A56E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A83609B5271DFC68002A56E3 /* WidgetKit.framework */,
+				A83609B7271DFC68002A56E3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A83609B9271DFC68002A56E3 /* WowTaskWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A83609BA271DFC68002A56E3 /* WowTaskWidget.swift */,
+				A83609BC271DFC6B002A56E3 /* Assets.xcassets */,
+				A83609BE271DFC6B002A56E3 /* Info.plist */,
+			);
+			path = WowTaskWidget;
+			sourceTree = "<group>";
+		};
 		A89C0A3E271DA73E005319AE = {
 			isa = PBXGroup;
 			children = (
 				A89C0A49271DA73E005319AE /* WowTask */,
+				A83609B9271DFC68002A56E3 /* WowTaskWidget */,
+				A83609B4271DFC68002A56E3 /* Frameworks */,
 				A89C0A48271DA73E005319AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				A89C0A47271DA73E005319AE /* WowTask.app */,
+				A83609B3271DFC68002A56E3 /* WowTaskWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +227,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A83609B2271DFC68002A56E3 /* WowTaskWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A83609C2271DFC6B002A56E3 /* Build configuration list for PBXNativeTarget "WowTaskWidgetExtension" */;
+			buildPhases = (
+				A83609AF271DFC68002A56E3 /* Sources */,
+				A83609B0271DFC68002A56E3 /* Frameworks */,
+				A83609B1271DFC68002A56E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WowTaskWidgetExtension;
+			productName = WowTaskWidgetExtension;
+			productReference = A83609B3271DFC68002A56E3 /* WowTaskWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A89C0A46271DA73E005319AE /* WowTask */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A89C0A5A271DA742005319AE /* Build configuration list for PBXNativeTarget "WowTask" */;
@@ -166,10 +251,12 @@
 				A89C0A43271DA73E005319AE /* Sources */,
 				A89C0A44271DA73E005319AE /* Frameworks */,
 				A89C0A45271DA73E005319AE /* Resources */,
+				A83609C5271DFC6B002A56E3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A83609C0271DFC6B002A56E3 /* PBXTargetDependency */,
 			);
 			name = WowTask;
 			productName = WowTask;
@@ -186,6 +273,9 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					A83609B2271DFC68002A56E3 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					A89C0A46271DA73E005319AE = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -205,11 +295,21 @@
 			projectRoot = "";
 			targets = (
 				A89C0A46271DA73E005319AE /* WowTask */,
+				A83609B2271DFC68002A56E3 /* WowTaskWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A83609B1271DFC68002A56E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83609C6271DFEB2002A56E3 /* Assets.xcassets in Resources */,
+				A83609BD271DFC6B002A56E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A89C0A45271DA73E005319AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +325,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A83609AF271DFC68002A56E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83609BB271DFC68002A56E3 /* WowTaskWidget.swift in Sources */,
+				A83609C7271E0093002A56E3 /* Constant.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A89C0A43271DA73E005319AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,7 +355,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A83609C0271DFC6B002A56E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A83609B2271DFC68002A56E3 /* WowTaskWidgetExtension */;
+			targetProxy = A83609BF271DFC6B002A56E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A83609C3271DFC6B002A56E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DAX8JLLR8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WowTaskWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WowTaskWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.kleva.WowTask.WowTaskWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A83609C4271DFC6B002A56E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DAX8JLLR8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WowTaskWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WowTaskWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.kleva.WowTask.WowTaskWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A89C0A58271DA742005319AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -366,6 +537,7 @@
 		A89C0A5B271DA742005319AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -397,6 +569,7 @@
 		A89C0A5C271DA742005319AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -428,6 +601,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A83609C2271DFC6B002A56E3 /* Build configuration list for PBXNativeTarget "WowTaskWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A83609C3271DFC6B002A56E3 /* Debug */,
+				A83609C4271DFC6B002A56E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A89C0A42271DA73E005319AE /* Build configuration list for PBXProject "WowTask" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
