@@ -8,8 +8,8 @@
 import CoreData
 
 struct PersistenceController {
-    static let shared = PersistenceController()
     // MARK: - 1. PERSISTENT CONTROLLER
+    static let shared = PersistenceController()
     
     // MARK: - 2. PERSISTENT CONTAINER
     let container: NSPersistentContainer
@@ -35,8 +35,9 @@ struct PersistenceController {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
             newItem.task = "Simple Data Task"
-            newItem.completion = false
-            newItem.id = UUID() 
+            newItem.isComplete = false
+            newItem.id = UUID()
+            newItem.priority = .normal
         }
         do {
             try viewContext.save()

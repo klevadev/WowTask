@@ -18,8 +18,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
+        entity: Item.entity(),
+        sortDescriptors: [ NSSortDescriptor(keyPath: \Item.priorityNum, ascending: false) ])
     private var items: FetchedResults<Item>
     
     // MARK: - FUNCTION
@@ -134,7 +134,7 @@ struct ContentView: View {
                             }
                         }
                     
-                    NewTaskItemView(isShowing: $showNewTaskItem)
+                    NewTaskItemView(priority: .normal, isShowing: $showNewTaskItem)
                 }
             } //: ZSTACK
             .onAppear(perform: {

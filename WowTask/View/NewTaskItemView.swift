@@ -11,6 +11,8 @@ struct NewTaskItemView: View {
     // MARK: - PROPERTY
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State private var task: String = ""
+    @State var priority: Priority
+    
     @Binding var isShowing: Bool
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -20,12 +22,13 @@ struct NewTaskItemView: View {
     }
     
     // MARK: - FUNCTION
-    private func addItem() {
+    private func addItem(task: String, priority: Priority, isComplete: Bool = false) {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
             newItem.task = task
-            newItem.completion = false
+            newItem.priority = priority
+            newItem.isComplete = isComplete
             newItem.id = UUID()
             do {
                 try viewContext.save()
@@ -34,7 +37,7 @@ struct NewTaskItemView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
             
-            task = ""
+            self.task = ""
             hideKeyboard()
             isShowing = false
         }
@@ -46,7 +49,7 @@ struct NewTaskItemView: View {
             Spacer()
             
             VStack {
-                VStack(spacing: 16) {
+                VStack(alignment: .leading, spacing: 10) {
                     TextField("Новое задание", text: $task)
                         .foregroundColor(.pink)
                         .font(.system(size: 24, weight: .bold, design: .rounded))
@@ -56,8 +59,45 @@ struct NewTaskItemView: View {
                         )
                         .cornerRadius(10)
                     
+                    Text("Приоритет")
+                        .font(.system(.headline, design: .rounded))
+                        .padding(.vertical, 10)
+                    
+                    HStack {
+                        Text("Высокий")
+                            .font(.system(.headline, design: .rounded))
+                            .padding(10)
+                            .background(priority == .high ? Color.red : Color(.systemGray4))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .onTapGesture {
+                                self.priority = .high
+                            }
+                        
+                        Text("Обычный")
+                            .font(.system(.headline, design: .rounded))
+                            .padding(10)
+                            .background(priority == .normal ? Color.orange : Color(.systemGray4))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .onTapGesture {
+                                self.priority = .normal
+                            }
+                        
+                        Text("Низкий")
+                            .font(.system(.headline, design: .rounded))
+                            .padding(10)
+                            .background(priority == .low ? Color.green : Color(.systemGray4))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .onTapGesture {
+                                self.priority = .low
+                            }
+                    }
+                    .padding(.bottom, 30)
+                    
                     Button {
-                        addItem()
+                        addItem(task: self.task, priority: self.priority)
                         TaskAudioPlayer.shared.playSound(sound: Sound.ding.rawValue)
                         feedBack.notificationOccurred(.success)
                     } label: {
@@ -95,8 +135,9 @@ struct NewTaskItemView: View {
     
     struct NewTaskItemView_Previews: PreviewProvider {
         static var previews: some View {
-            NewTaskItemView(isShowing: .constant(true))
+            NewTaskItemView(priority: .normal, isShowing: .constant(true))
                 .background(Color.gray.edgesIgnoringSafeArea(.all))
+//                .previewDevice("iPhone SE (2nd generation)")
         }
     }
 }

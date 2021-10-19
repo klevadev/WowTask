@@ -10,6 +10,8 @@ import SwiftUI
 struct CheckboxStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         return HStack {
+            configuration.label
+            Spacer()
             Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
                 .foregroundColor(configuration.isOn ? .pink : .primary)
                 .font(.system(size: 30, weight: .semibold, design: .rounded))
@@ -24,8 +26,6 @@ struct CheckboxStyle: ToggleStyle {
                         TaskAudioPlayer.shared.playSound(sound: Sound.tap.rawValue)
                     }
                 }
-            
-            configuration.label
         } //: HStack
     }
 }

@@ -22,6 +22,7 @@
 		A83609C1271DFC6B002A56E3 /* WowTaskWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A83609B3271DFC68002A56E3 /* WowTaskWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A83609C6271DFEB2002A56E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
 		A83609C7271E0093002A56E3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836099F271DAEB5002A56E3 /* Constant.swift */; };
+		A83609C9271EDDBC002A56E3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609C8271EDDBC002A56E3 /* Item.swift */; };
 		A89C0A4B271DA73E005319AE /* WowTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4A271DA73E005319AE /* WowTaskApp.swift */; };
 		A89C0A4D271DA73E005319AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4C271DA73E005319AE /* ContentView.swift */; };
 		A89C0A4F271DA742005319AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		A83609BA271DFC68002A56E3 /* WowTaskWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskWidget.swift; sourceTree = "<group>"; };
 		A83609BC271DFC6B002A56E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A83609BE271DFC6B002A56E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A83609C8271EDDBC002A56E3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A89C0A47271DA73E005319AE /* WowTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89C0A4A271DA73E005319AE /* WowTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskApp.swift; sourceTree = "<group>"; };
 		A89C0A4C271DA73E005319AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				A89C0A53271DA742005319AE /* Persistence.swift */,
 				A89C0A55271DA742005319AE /* WowTask.xcdatamodeld */,
+				A83609C8271EDDBC002A56E3 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				A89C0A57271DA742005319AE /* WowTask.xcdatamodeld in Sources */,
 				A83609A4271DB6B7002A56E3 /* BackgroundImageView.swift in Sources */,
 				A89C0A54271DA742005319AE /* Persistence.swift in Sources */,
+				A83609C9271EDDBC002A56E3 /* Item.swift in Sources */,
 				A83609A2271DB3BB002A56E3 /* HideKeyboardExtension.swift in Sources */,
 				A83609A8271DCD5C002A56E3 /* BlankView.swift in Sources */,
 				A83609A0271DAEB5002A56E3 /* Constant.swift in Sources */,

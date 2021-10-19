@@ -12,15 +12,33 @@ struct ListRowItemView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var item: Item
     
+    // MARK: - FUNCTION
+    private func color(for priority: Priority) -> Color {
+        switch priority {
+        case .high: return .red
+        case .normal: return .orange
+        case .low: return .green
+        }
+    }
+    
     // MARK: - BODY
     var body: some View {
-        Toggle(isOn: $item.completion) {
-            Text(item.task ?? "")
-                .font(.system(.title2, design: .rounded))
-                .fontWeight(.heavy)
-                .foregroundColor(item.completion ? .pink : Color.primary)
-                .padding(.vertical, 12)
+        Toggle(isOn: $item.isComplete) {
+            HStack {
+                Circle()
+                    .frame(width: 12, height: 12)
+                    .foregroundColor(self.color(for: self.item.priority))
+                
+//                Spacer()
+                
+                Text(item.task)
+                    .strikethrough(item.isComplete, color: .black)
+                    .font(.system(.title2, design: .rounded))
+                    .fontWeight(.heavy)
+                    .foregroundColor(item.isComplete ? .pink : Color.primary)
+                    .padding(.vertical, 12)
                 .animation(.default)
+            }
         } //: TOGGLE
         .toggleStyle(CheckboxStyle())
         .onReceive(item.objectWillChange) { _ in
