@@ -8,15 +8,14 @@
 import SwiftUI
 
 @main
-struct WowTaskApp: App {
-    let persistenceController = PersistenceController.shared
-    
+struct WowTaskApp: App {    
+    let context = CoreDataHelper.shared.persistentContainer.viewContext
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            TaskListView()
+                .environment(\.managedObjectContext, context)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }

@@ -1,5 +1,5 @@
 //
-//  TaskItem.swift
+//  TaskMO.swift
 //  WowTask
 //
 //  Created by Lev Kolesnikov on 19.10.2021.
@@ -14,16 +14,16 @@ enum Priority: Int {
     case high = 2
 }
 
-@objc(Item)
-public class Item: NSManagedObject {
+@objc(TaskMO)
+final class TaskMO: NSManagedObject {
     @NSManaged public var id: UUID
-    @NSManaged public var task: String
+    @NSManaged public var text: String
     @NSManaged public var priorityNum: Int32
-    @NSManaged public var isComplete: Bool
+    @NSManaged public var isCompleted: Bool
     @NSManaged public var timestamp: Date
 }
 
-extension Item: Identifiable {
+extension TaskMO: Identifiable {
     
     var priority: Priority {
         get {
@@ -33,5 +33,15 @@ extension Item: Identifiable {
         set {
             self.priorityNum = Int32(newValue.rawValue)
         }
+    }
+}
+
+extension TaskMO {
+    func convertToTask() -> Task {
+        Task(id: id,
+             text: text,
+             priorityNum: priorityNum,
+             isCompleted: isCompleted,
+             timestamp: timestamp)
     }
 }

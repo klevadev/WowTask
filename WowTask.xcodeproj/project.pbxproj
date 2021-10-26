@@ -22,12 +22,17 @@
 		A83609C1271DFC6B002A56E3 /* WowTaskWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A83609B3271DFC68002A56E3 /* WowTaskWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A83609C6271DFEB2002A56E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
 		A83609C7271E0093002A56E3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836099F271DAEB5002A56E3 /* Constant.swift */; };
-		A83609C9271EDDBC002A56E3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609C8271EDDBC002A56E3 /* Item.swift */; };
+		A83609C9271EDDBC002A56E3 /* TaskMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609C8271EDDBC002A56E3 /* TaskMO.swift */; };
+		A83609CD271F3D86002A56E3 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609CC271F3D86002A56E3 /* TaskListViewModel.swift */; };
+		A83609CF271F48F2002A56E3 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609CE271F48F2002A56E3 /* CoreDataHelper.swift */; };
+		A83609D1271FF09C002A56E3 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D0271FF09C002A56E3 /* DBHelper.swift */; };
+		A83609D3271FF154002A56E3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D2271FF154002A56E3 /* DataManager.swift */; };
+		A83609D5271FF1DB002A56E3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D4271FF1DB002A56E3 /* Task.swift */; };
+		A83609D7271FF60A002A56E3 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D6271FF60A002A56E3 /* NewTaskViewModel.swift */; };
 		A89C0A4B271DA73E005319AE /* WowTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4A271DA73E005319AE /* WowTaskApp.swift */; };
-		A89C0A4D271DA73E005319AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4C271DA73E005319AE /* ContentView.swift */; };
+		A89C0A4D271DA73E005319AE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4C271DA73E005319AE /* TaskListView.swift */; };
 		A89C0A4F271DA742005319AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
 		A89C0A52271DA742005319AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A51271DA742005319AE /* Preview Assets.xcassets */; };
-		A89C0A54271DA742005319AE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A53271DA742005319AE /* Persistence.swift */; };
 		A89C0A57271DA742005319AE /* WowTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A55271DA742005319AE /* WowTask.xcdatamodeld */; };
 		A89C0A60271DA7D8005319AE /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A5D271DA7D8005319AE /* sound-ding.mp3 */; };
 		A89C0A61271DA7D8005319AE /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A5E271DA7D8005319AE /* sound-rise.mp3 */; };
@@ -73,13 +78,18 @@
 		A83609BA271DFC68002A56E3 /* WowTaskWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskWidget.swift; sourceTree = "<group>"; };
 		A83609BC271DFC6B002A56E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A83609BE271DFC6B002A56E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A83609C8271EDDBC002A56E3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A83609C8271EDDBC002A56E3 /* TaskMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMO.swift; sourceTree = "<group>"; };
+		A83609CC271F3D86002A56E3 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
+		A83609CE271F48F2002A56E3 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		A83609D0271FF09C002A56E3 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		A83609D2271FF154002A56E3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A83609D4271FF1DB002A56E3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		A83609D6271FF60A002A56E3 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
 		A89C0A47271DA73E005319AE /* WowTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89C0A4A271DA73E005319AE /* WowTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskApp.swift; sourceTree = "<group>"; };
-		A89C0A4C271DA73E005319AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A89C0A4C271DA73E005319AE /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		A89C0A4E271DA742005319AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A89C0A51271DA742005319AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A89C0A53271DA742005319AE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A89C0A56271DA742005319AE /* WowTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WowTask.xcdatamodel; sourceTree = "<group>"; };
 		A89C0A5D271DA7D8005319AE /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		A89C0A5E271DA7D8005319AE /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
@@ -126,6 +136,34 @@
 			path = WowTaskWidget;
 			sourceTree = "<group>";
 		};
+		A83609CA271F3D26002A56E3 /* NewTaskView */ = {
+			isa = PBXGroup;
+			children = (
+				A83609A5271DC869002A56E3 /* NewTaskItemView.swift */,
+				A83609D6271FF60A002A56E3 /* NewTaskViewModel.swift */,
+			);
+			path = NewTaskView;
+			sourceTree = "<group>";
+		};
+		A83609CB271F3D46002A56E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A83609A3271DB6B7002A56E3 /* BackgroundImageView.swift */,
+				A83609A7271DCD5C002A56E3 /* BlankView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A888BF99272450C600C2E7F4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A83609D0271FF09C002A56E3 /* DBHelper.swift */,
+				A83609CE271F48F2002A56E3 /* CoreDataHelper.swift */,
+				A83609D2271FF154002A56E3 /* DataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A89C0A3E271DA73E005319AE = {
 			isa = PBXGroup;
 			children = (
@@ -150,8 +188,11 @@
 			children = (
 				A89C0A69271DA881005319AE /* Info.plist */,
 				A89C0A4A271DA73E005319AE /* WowTaskApp.swift */,
-				A89C0A64271DA7EA005319AE /* View */,
+				A89C0A64271DA7EA005319AE /* TaskListView */,
+				A83609CA271F3D26002A56E3 /* NewTaskView */,
+				A83609CB271F3D46002A56E3 /* Views */,
 				A89C0A68271DA826005319AE /* Model */,
+				A888BF99272450C600C2E7F4 /* Services */,
 				A89C0A66271DA803005319AE /* Style */,
 				A89C0A67271DA80A005319AE /* Utility */,
 				A89C0A65271DA7F6005319AE /* Extension */,
@@ -180,16 +221,14 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
-		A89C0A64271DA7EA005319AE /* View */ = {
+		A89C0A64271DA7EA005319AE /* TaskListView */ = {
 			isa = PBXGroup;
 			children = (
-				A89C0A4C271DA73E005319AE /* ContentView.swift */,
-				A83609A3271DB6B7002A56E3 /* BackgroundImageView.swift */,
-				A83609A5271DC869002A56E3 /* NewTaskItemView.swift */,
-				A83609A7271DCD5C002A56E3 /* BlankView.swift */,
+				A89C0A4C271DA73E005319AE /* TaskListView.swift */,
 				A83609A9271DDB75002A56E3 /* ListRowItemView.swift */,
+				A83609CC271F3D86002A56E3 /* TaskListViewModel.swift */,
 			);
-			path = View;
+			path = TaskListView;
 			sourceTree = "<group>";
 		};
 		A89C0A65271DA7F6005319AE /* Extension */ = {
@@ -220,9 +259,9 @@
 		A89C0A68271DA826005319AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A89C0A53271DA742005319AE /* Persistence.swift */,
 				A89C0A55271DA742005319AE /* WowTask.xcdatamodeld */,
-				A83609C8271EDDBC002A56E3 /* Item.swift */,
+				A83609C8271EDDBC002A56E3 /* TaskMO.swift */,
+				A83609D4271FF1DB002A56E3 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,17 +382,22 @@
 			files = (
 				A89C0A57271DA742005319AE /* WowTask.xcdatamodeld in Sources */,
 				A83609A4271DB6B7002A56E3 /* BackgroundImageView.swift in Sources */,
-				A89C0A54271DA742005319AE /* Persistence.swift in Sources */,
-				A83609C9271EDDBC002A56E3 /* Item.swift in Sources */,
+				A83609CF271F48F2002A56E3 /* CoreDataHelper.swift in Sources */,
+				A83609CD271F3D86002A56E3 /* TaskListViewModel.swift in Sources */,
+				A83609D7271FF60A002A56E3 /* NewTaskViewModel.swift in Sources */,
+				A83609C9271EDDBC002A56E3 /* TaskMO.swift in Sources */,
 				A83609A2271DB3BB002A56E3 /* HideKeyboardExtension.swift in Sources */,
 				A83609A8271DCD5C002A56E3 /* BlankView.swift in Sources */,
 				A83609A0271DAEB5002A56E3 /* Constant.swift in Sources */,
+				A83609D3271FF154002A56E3 /* DataManager.swift in Sources */,
+				A83609D5271FF1DB002A56E3 /* Task.swift in Sources */,
 				A83609AA271DDB75002A56E3 /* ListRowItemView.swift in Sources */,
-				A89C0A4D271DA73E005319AE /* ContentView.swift in Sources */,
+				A89C0A4D271DA73E005319AE /* TaskListView.swift in Sources */,
 				A89C0A4B271DA73E005319AE /* WowTaskApp.swift in Sources */,
 				A83609AC271DDE01002A56E3 /* CheckboxStyle.swift in Sources */,
 				A83609AE271DF239002A56E3 /* SoundPlayer.swift in Sources */,
 				A83609A6271DC869002A56E3 /* NewTaskItemView.swift in Sources */,
+				A83609D1271FF09C002A56E3 /* DBHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

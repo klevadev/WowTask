@@ -6,36 +6,18 @@
 //
 
 import SwiftUI
-import CoreData
 
-struct ContentView: View {
+struct TaskListView: View {
     
     // MARK: - PROPERTY
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State private var showNewTaskItem: Bool = false
     
-    // FETCHING DATA
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(
-        entity: Item.entity(),
-        sortDescriptors: [ NSSortDescriptor(keyPath: \Item.priorityNum, ascending: false) ])
-    private var items: FetchedResults<Item>
+    @ObservedObject var viewModel = TaskListViewModel()
     
     // MARK: - FUNCTION
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
     
     // MARK: - BODY
     var body: some View {
@@ -53,16 +35,6 @@ struct ContentView: View {
                             .padding(.leading, 4)
                         
                         Spacer()
-                        
-                        // EDIT BUTTON
-                        
-                        EditButton()
-                            .font(.system(size: 16, weight: .semibold, design: .rounded))
-                            .padding(.horizontal, 10)
-                            .frame(minWidth: 70, minHeight: 24)
-                            .background(
-                                Capsule().stroke(Color.white, lineWidth: 2)
-                            )
                         
                         // APPEARANCE BUTTON
                         
@@ -82,7 +54,6 @@ struct ContentView: View {
                     } //: HStack
                     .padding()
                     .foregroundColor(.white)
-                    
                     
                     Spacer(minLength: 80)
                     
@@ -109,10 +80,12 @@ struct ContentView: View {
                     
                     // MARK: - TASKS
                     List {
-                        ForEach(items) { item in
-                            ListRowItemView(item: item)
+                        ForEach(viewModel.tasks) { task in
+                            ListRowItemView(task: task, delegate: self)
                         }
-                        .onDelete(perform: deleteItems)
+                        .onDelete(perform:
+                                    self.viewModel.deleteTasks
+                        )
                     } //: LIST
                     .listStyle(.insetGrouped)
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
@@ -132,9 +105,11 @@ struct ContentView: View {
                             withAnimation {
                                 showNewTaskItem = false
                             }
+                        }.onDisappear {
+                            viewModel.fetchTasks()
                         }
                     
-                    NewTaskItemView(priority: .normal, isShowing: $showNewTaskItem)
+                    NewTaskItemView(priority: .normal, isShowing: $showNewTaskItem, viewModel: NewTaskViewModel())
                 }
             } //: ZSTACK
             .onAppear(perform: {
@@ -154,10 +129,19 @@ struct ContentView: View {
     }
 }
 
+// MARK: - ListRowItemViewProtocol
+extension TaskListView: ListRowItemViewProtocol {
+    func updateIsCompleted(with task: Task) {
+        let currentTask = viewModel.tasks.filter {$0.id == task.id}
+        guard let item = currentTask.first else { return }
+        viewModel.toggleIsCompleted(for: item)
+    }
+}
+
 
 // MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        TaskListView()
     }
 }

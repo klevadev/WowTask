@@ -10,38 +10,20 @@ import SwiftUI
 struct NewTaskItemView: View {
     // MARK: - PROPERTY
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     @State private var task: String = ""
     @State var priority: Priority
     
     @Binding var isShowing: Bool
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var viewModel: NewTaskViewModel
     
     private var isButtonDisabled: Bool {
         task.isEmpty
     }
     
     // MARK: - FUNCTION
-    private func addItem(task: String, priority: Priority, isComplete: Bool = false) {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.task = task
-            newItem.priority = priority
-            newItem.isComplete = isComplete
-            newItem.id = UUID()
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            
-            self.task = ""
-            hideKeyboard()
-            isShowing = false
-        }
-    }
+    
     // MARK: - BODY
     
     var body: some View {
@@ -97,9 +79,11 @@ struct NewTaskItemView: View {
                     .padding(.bottom, 30)
                     
                     Button {
-                        addItem(task: self.task, priority: self.priority)
+                        viewModel.addNewTask(task: self.task, priority: self.priority)
                         TaskAudioPlayer.shared.playSound(sound: Sound.ding.rawValue)
                         feedBack.notificationOccurred(.success)
+                        hideKeyboard()
+                        isShowing = false
                     } label: {
                         Spacer()
                         Text("Сохранить")
@@ -135,7 +119,7 @@ struct NewTaskItemView: View {
     
     struct NewTaskItemView_Previews: PreviewProvider {
         static var previews: some View {
-            NewTaskItemView(priority: .normal, isShowing: .constant(true))
+            NewTaskItemView(priority: .normal, isShowing: .constant(true), viewModel: NewTaskViewModel())
                 .background(Color.gray.edgesIgnoringSafeArea(.all))
 //                .previewDevice("iPhone SE (2nd generation)")
         }

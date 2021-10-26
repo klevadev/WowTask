@@ -7,10 +7,16 @@
 
 import SwiftUI
 
+protocol ListRowItemViewProtocol {
+    func updateIsCompleted(with task: Task)
+}
+
 struct ListRowItemView: View {
     // MARK: - PROPERTY
-    @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var item: Item
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @State var task: Task
+    var delegate: ListRowItemViewProtocol
+    
     
     // MARK: - FUNCTION
     private func color(for priority: Priority) -> Color {
@@ -23,28 +29,24 @@ struct ListRowItemView: View {
     
     // MARK: - BODY
     var body: some View {
-        Toggle(isOn: $item.isComplete) {
+        Toggle(isOn: $task.isCompleted) {
             HStack {
                 Circle()
                     .frame(width: 12, height: 12)
-                    .foregroundColor(self.color(for: self.item.priority))
+                    .foregroundColor(self.color(for: self.task.priority))
                 
-//                Spacer()
-                
-                Text(item.task)
-                    .strikethrough(item.isComplete, color: .black)
+                Text(task.text)
+                    .strikethrough(task.isCompleted, color: isDarkMode ? .white : .black)
                     .font(.system(.title2, design: .rounded))
                     .fontWeight(.heavy)
-                    .foregroundColor(item.isComplete ? .pink : Color.primary)
+                    .foregroundColor(task.isCompleted ? .pink : Color.primary)
                     .padding(.vertical, 12)
-                .animation(.default)
+                    .animation(.default)
             }
         } //: TOGGLE
-        .toggleStyle(CheckboxStyle())
-        .onReceive(item.objectWillChange) { _ in
-            if self.viewContext.hasChanges {
-                try? self.viewContext.save()
-            }
+        .onChange(of: task.isCompleted) { _ in
+            delegate.updateIsCompleted(with: task)
         }
+        .toggleStyle(CheckboxStyle())
     }
 }
