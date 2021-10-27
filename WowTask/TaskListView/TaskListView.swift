@@ -36,8 +36,20 @@ struct TaskListView: View {
                         
                         Spacer()
                         
-                        // APPEARANCE BUTTON
+                        // TOGGLE COMPLETED TASKS BUTTON
                         
+                        Button {
+                            self.viewModel.showCompleted.toggle()
+                            TaskAudioPlayer.shared.playSound(sound: Sound.tap.rawValue)
+                            feedBack.notificationOccurred(.success)
+                        } label: {
+                            Image(systemName: isDarkMode ? "checkmark.circle.fill" : "checkmark.circle")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .font(.system(.title, design: .rounded))
+                        }
+                        
+                        // APPEARANCE BUTTON
                         Button {
                             // TOGGLE APPEARANCE
                             isDarkMode.toggle()
@@ -49,8 +61,6 @@ struct TaskListView: View {
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
                         }
-                        
-                        
                     } //: HStack
                     .padding()
                     .foregroundColor(.white)
@@ -77,7 +87,12 @@ struct TaskListView: View {
                             .clipShape(Capsule())
                     )
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 8, x: 0, y: 4.0)
-                    
+                
+                    if viewModel.tasks.count == 0 {
+                        Spacer(minLength: 80)
+                        EmptyListView()
+                    }
+                                        
                     // MARK: - TASKS
                     List {
                         ForEach(viewModel.tasks) { task in
@@ -96,7 +111,7 @@ struct TaskListView: View {
                 .transition(.move(edge: .bottom))
                 .animation(.easeOut(duration: 0.5))
                 // MARK: - NEW TASK ITEM
-                
+                                
                 if showNewTaskItem {
                     BlankView(
                         backgroundColor: isDarkMode ? Color.black : Color.gray,
@@ -117,10 +132,6 @@ struct TaskListView: View {
             })
             .navigationBarTitle("Ежедневные задачи", displayMode: .large)
             .navigationBarHidden(true)
-            .background(
-                BackgroundImageView()
-                    .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
-            )
             .background(
                 backgroundGradient.ignoresSafeArea(.all)
             )

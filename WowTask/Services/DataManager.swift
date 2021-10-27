@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 protocol DataManagerProtocol {
-    func fetchItemList() -> [Task]
+    func fetchItemList(includingCompleted: Bool) -> [Task]
     func addTask(task: String, priority: Priority, isComplete: Bool)
     func toggleIsCompleted(for todo: Task)
     func deleteItems(items: [Task])
@@ -38,8 +38,9 @@ class DataManager {
 
 // MARK: - DataManagerProtocol
 extension DataManager: DataManagerProtocol {
-    func fetchItemList() -> [Task] {
-        let result: Result<[TaskMO], Error> = dbHelper.fetch(TaskMO.self, sortDescriptors: [NSSortDescriptor(keyPath: \TaskMO.priorityNum, ascending: false)])
+    func fetchItemList(includingCompleted: Bool = false) -> [Task] {
+        let predicate = includingCompleted ? nil : NSPredicate(format: "isCompleted == false")
+        let result: Result<[TaskMO], Error> = dbHelper.fetch(TaskMO.self, predicate: predicate, sortDescriptors: [NSSortDescriptor(keyPath: \TaskMO.priorityNum, ascending: false)])
         switch result {
         case .success(let itemMOs):
             return itemMOs.map { $0.convertToTask() }

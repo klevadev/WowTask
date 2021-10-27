@@ -29,6 +29,7 @@
 		A83609D3271FF154002A56E3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D2271FF154002A56E3 /* DataManager.swift */; };
 		A83609D5271FF1DB002A56E3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D4271FF1DB002A56E3 /* Task.swift */; };
 		A83609D7271FF60A002A56E3 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83609D6271FF60A002A56E3 /* NewTaskViewModel.swift */; };
+		A88E31882728537100DF171D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88E31872728537100DF171D /* EmptyListView.swift */; };
 		A89C0A4B271DA73E005319AE /* WowTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4A271DA73E005319AE /* WowTaskApp.swift */; };
 		A89C0A4D271DA73E005319AE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C0A4C271DA73E005319AE /* TaskListView.swift */; };
 		A89C0A4F271DA742005319AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89C0A4E271DA742005319AE /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		A83609D2271FF154002A56E3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A83609D4271FF1DB002A56E3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A83609D6271FF60A002A56E3 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
+		A88E31872728537100DF171D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		A89C0A47271DA73E005319AE /* WowTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89C0A4A271DA73E005319AE /* WowTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowTaskApp.swift; sourceTree = "<group>"; };
 		A89C0A4C271DA73E005319AE /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				A83609A3271DB6B7002A56E3 /* BackgroundImageView.swift */,
 				A83609A7271DCD5C002A56E3 /* BlankView.swift */,
+				A88E31872728537100DF171D /* EmptyListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				A83609D5271FF1DB002A56E3 /* Task.swift in Sources */,
 				A83609AA271DDB75002A56E3 /* ListRowItemView.swift in Sources */,
 				A89C0A4D271DA73E005319AE /* TaskListView.swift in Sources */,
+				A88E31882728537100DF171D /* EmptyListView.swift in Sources */,
 				A89C0A4B271DA73E005319AE /* WowTaskApp.swift in Sources */,
 				A83609AC271DDE01002A56E3 /* CheckboxStyle.swift in Sources */,
 				A83609AE271DF239002A56E3 /* SoundPlayer.swift in Sources */,

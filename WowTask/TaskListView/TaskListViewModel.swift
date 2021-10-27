@@ -10,6 +10,7 @@ import Combine
 
 protocol TaskListViewModelProtocol {
     var tasks: [Task] { get }
+    var showCompleted: Bool { get set }
     func fetchTasks()
     func deleteTasks(offsets: IndexSet)
     func toggleIsCompleted(for item: Task)
@@ -17,6 +18,12 @@ protocol TaskListViewModelProtocol {
 
 final class TaskListViewModel: ObservableObject {
     @Published var tasks = [Task]()
+    @Published var showCompleted = false {
+        didSet {
+            fetchTasks()
+        }
+    }
+    
     var dataManager: DataManagerProtocol
     
     init(dataManager: DataManagerProtocol = DataManager.shared) {
@@ -29,7 +36,7 @@ final class TaskListViewModel: ObservableObject {
 extension TaskListViewModel: TaskListViewModelProtocol {
 
     func fetchTasks() {
-        tasks = dataManager.fetchItemList()
+        tasks = dataManager.fetchItemList(includingCompleted: showCompleted)
     }
     
     func toggleIsCompleted(for item: Task) {
